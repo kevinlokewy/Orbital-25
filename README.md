@@ -1,36 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Racetrack
+A webapp to track swimming results. (still in development)
 
-## Getting Started
+How to run?
+We used Node.js, so I think you're going to have to download it. (We also used Supabase for the backend user accounts, but the URL and the key are all local in an env.local file on my machine, so I'm not sure if you're going to be able to login.)
 
-First, run the development server:
+Once you've done that, clone it to your local machine.
+All the main files are under Orbital-25/frontend/nextjs-frontend/twonoobs, but there is a README in the backend folder if you want to read that.
+Once you're in twonoobs, run npm install, then npm run dev. The app will appear at http://localhost:3000
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The first page you see is the home page. There are a few buttons on the page that you can mess around with. 
+On the top right of the home page is the login page, clicking that will bring you to the log in page where I have created 2 test accounts, admin1@test.com and admin2@test.com, the password is password.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+That's about it for now.
