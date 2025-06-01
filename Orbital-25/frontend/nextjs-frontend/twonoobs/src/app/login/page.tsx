@@ -2,11 +2,10 @@
 
 export default function LoginPage() {
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-sm">
-        <h1 className="water-text text-center mb-6 text-3xl">Racetrack</h1>
-
-        <form onSubmit={(e) => e.preventDefault()}>
+    <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-sm">
+        <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
+        <form>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Username
@@ -29,7 +28,7 @@ export default function LoginPage() {
             />
           </div>
 
-          <div className="flex items-center justify-start gap-4">
+          <div className="flex items-center justify-between">
             <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
@@ -40,6 +39,7 @@ export default function LoginPage() {
               type="button"
               className="text-sm text-blue-500 hover:underline"
               onClick={() => {
+                // fake guest login redirect
                 window.location.href = "/";
               }}
             >
@@ -47,13 +47,6 @@ export default function LoginPage() {
             </button>
           </div>
         </form>
-
-        <p className="text-gray-800 font-semibold text-left text-sm mt-4">
-          Don’t have an account?{' '}
-          <a href="/register" className="text-blue-500 hover:underline">
-            Sign Up
-          </a>
-        </p>
       </div>
     </main>
   );
