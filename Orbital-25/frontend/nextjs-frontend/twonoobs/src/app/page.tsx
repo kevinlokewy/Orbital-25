@@ -6,7 +6,7 @@ export default function HomePage() {
   const [activeTab, setActiveTab] = useState('meets');
 
   return (
-    <main className="p-6 bg-gray-100 min-h-screen">
+    <main className="p-6 bg-white min-h-screen">
       {/*login button*/}
       <div className='flex justify-end mb-4'>
         <button
