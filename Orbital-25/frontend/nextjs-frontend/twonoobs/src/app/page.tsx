@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -17,6 +16,7 @@ interface Meet {
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState('meets');
   const [upcomingMeets, setUpcomingMeets] = useState<Meet[]>([]);
+  const [pastMeets, setPastMeets] = useState<Meet[]>([]);
 
   useEffect(() => {
     const fetchUpcomingMeets = async () => {
@@ -25,19 +25,31 @@ export default function HomePage() {
         .select('id, meet_name, location, start_date, end_date')
         .order('start_date', { ascending: true })
         .limit(5);
-      console.log('DATA:', data);
-      console.log('ERROR:', error);
 
       if (error) {
         console.error('Supabase fetch error:', JSON.stringify(error, null, 2));
       } else {
         setUpcomingMeets(data);
-        console.log('upcomingMeets state set to:', data);
+      }
+    };
+
+    const fetchPastMeets = async () => {
+      const { data, error } = await supabase
+        .from('past_meets')
+        .select('id, meet_name, location, start_date, end_date')
+        .order('start_date', { ascending: false });
+
+      if (error) {
+        console.error('Supabase fetch error:', JSON.stringify(error, null, 2));
+      } else {
+        setPastMeets(data);
       }
     };
 
     fetchUpcomingMeets();
-  }, []);
+    fetchPastMeets();
+  }, []); 
+
 
   return (
     <main className="p-6 bg-white min-h-screen">
@@ -108,8 +120,20 @@ export default function HomePage() {
             <div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Past Meets</h3>
               <ul className="list-disc list-inside text-gray-600 mb-4">
-                <li>SEA Age Group – May 14 </li>
-                <li>NUS Invitational – April 30</li>
+                {pastMeets.length === 0 ? (
+                  <li>No Recent Meets</li>
+                ) : (
+                  pastMeets.map((meet) => (
+                    <li key={meet.id} className="mb-2">
+                      <Link
+                        href={`/meets/${meet.id}`}
+                        className="font-medium text-gray-700 hover:underline"
+                      >
+                        {meet.meet_name} 
+                      </Link>
+                    </li>
+                  ))
+                )}      
               </ul>
             </div>
           </div>
