@@ -10,3 +10,8 @@ The first page you see is the home page. There are a few buttons on the page tha
 On the top right of the home page is the login page, clicking that will bring you to the log in page where you can test your test user accounts.
 
 That's about it for now.
+Supabase setup
+- disabled email confirmation first 
+- login with invalid credentials will show error message
+- legit login and continue as guest will bring you to the home page
+- sign up will redirect to 404
